@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    div {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <h1>Enter Marks of Five Subjects</h1>
+    <form id="form">
+      <div>
+        <label for="physics">Physics:</label>
+        <input type="number" id="physics" min="0" max="100" required>
+
+      </div>
+      <div>
+        <label for="chemistry">Chemistry:</label>
+        <input type="number" id="chemistry" min="0" max="100" required>
+
+      </div>
+      <div>
+        <label for="biology">Biology:</label>
+        <input type="number" id="biology" min="0" max="100" required>
+      </div>
+
+      <div>
+        <label for="mathematics">Mathematics:</label>
+        <input type="number" id="mathematics" min="0" max="100" required>
+      </div>
+
+      <div>
+        <label for="computer">Computer:</label>
+        <input type="number" id="computer" min="0" max="100" required>
+      </div>
+
+      <button type="button" onclick="finalResult()">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+    function finalResult() {
+      var physics = parseFloat(document.getElementById("physics").value);
+      var chemistry = parseFloat(document.getElementById("chemistry").value);
+      var biology = parseFloat(document.getElementById("biology").value);
+      var mathematics = parseFloat(document.getElementById("mathematics").value);
+      var computer = parseFloat(document.getElementById("computer").value);
+
+      var sum = physics + chemistry + biology + mathematics + computer;
+      var percentage = (sum / 500) * 100;
+
+      var grade;
+      if (percentage >= 90) {
+        grade = 'A';
+      } else if (percentage >= 80) {
+        grade = 'B';
+      } else if (percentage >= 70) {
+        grade = 'C';
+      } else if (percentage >= 60) {
+        grade = 'D';
+      } else if (percentage >= 40) {
+        grade = 'E';
+      } else {
+        grade = 'F';
+      }
+
+      document.getElementById("result").innerText = "Percentage: " + percentage.toFixed(2) + "%\nGrade: " + grade;
+    }
+  </script>
+  </body>
+
+</html>
